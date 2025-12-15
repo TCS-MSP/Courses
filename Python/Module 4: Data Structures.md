@@ -1,6 +1,7 @@
 [Previous Module - Module 3: Functions and Modules](./Module%203:%20Functions%20and%20Modules.md)
 
 # Module 4: Data Structures 🧺
+⏱️ **Estimated reading time:** ~30 minutes
 
 Data structures are ways to **store, organize, and manage data efficiently**. Python provides several powerful built-in data structures—**lists, tuples, sets, and dictionaries**—each designed for different use cases and access patterns.
 
