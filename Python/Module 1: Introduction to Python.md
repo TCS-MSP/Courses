@@ -306,3 +306,5 @@ In **Module 2**, we’ll explore **control structures**—how to make decisions 
 * `if / elif / else`
 * `for` and `while` loops
 * Error handling with `try / except`
+  
+[Next Module - Module 2: Control Structures](./Module%202%3A%20Control%20Structures.md)
