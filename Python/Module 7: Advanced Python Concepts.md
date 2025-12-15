@@ -1,8 +1,7 @@
 [Previous Module - Module 6: Object-Oriented Programming (OOP)](./Module%206:%20Object-Oriented%20Programming%20%28OOP%29.md)
 
-⏱️ **Estimated reading time:** ~30 minutes
-
 # Module 7: Advanced Python Concepts 🚀
+⏱️ **Estimated reading time:** ~30 minutes
 
 This module explores powerful Python features that improve **flexibility**, **readability**, and **performance** in real-world applications.
 
