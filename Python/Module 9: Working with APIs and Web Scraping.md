@@ -175,18 +175,18 @@ scrapy crawl example
 * Multiple spiders can exist; each must have a **unique `name`**.
 
 **Folder example with multiple spiders:**
-
 ```
-myproject/
-├── scrapy.cfg
-├── myproject/
+myproject/                 <-- Root folder created by `scrapy startproject myproject`
+├── scrapy.cfg             <-- Scrapy configuration file (always at root)
+├── myproject/             <-- Python module (same name as project)
 │   ├── __init__.py
-│   ├── items.py
-│   ├── middlewares.py
-│   ├── pipelines.py
-│   └── spiders/
-│       ├── example_spider.py
-│       └── weather_spider.py
+│   ├── items.py           <-- Define data models (optional)
+│   ├── middlewares.py     <-- Custom middlewares (optional)
+│   ├── pipelines.py       <-- Data pipelines (optional)
+│   └── spiders/           <-- Folder for all spiders
+│       ├── __init__.py
+│       ├── example_spider.py     <-- Spider named "example"
+│       └── weather_spider.py     <-- Another spider named "weather"
 ```
 
 Run each spider by its name:
