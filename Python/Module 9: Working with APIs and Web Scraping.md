@@ -1,8 +1,7 @@
 [Previous Module - Module 8: Working with Data (Intro to Data Science)](./Module%208:%20Working%20with%20Data%20%28Intro%20to%20Data%20Science%29.md)
 
-⏱️ **Estimated reading time:** ~35–40 minutes
-
 # Module 9: Working with APIs and Web Scraping 🌐
+⏱️ **Estimated reading time:** ~35–40 minutes
 
 This module covers how to **access data from external sources**, either via **APIs** or by **scraping websites**. These are essential skills for real-world data gathering when datasets are not directly available.
 
