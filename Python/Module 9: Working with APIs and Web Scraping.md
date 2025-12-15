@@ -3,107 +3,82 @@
 # Module 9: Working with APIs and Web Scraping 🌐
 ⏱️ **Estimated reading time:** ~35–40 minutes
 
-This module covers how to **access data from external sources**, either via **APIs** or by **scraping websites**. These are essential skills for real-world data gathering when datasets are not directly available.
+This module covers how to access external data using **APIs** and **web scraping**. Both methods allow Python programs to gather information from the web, but APIs are generally more stable and structured, while scraping is a workaround when no API exists.
 
 ---
 
-## Learning Objectives 🎯
+## **Lesson 9.1: Introduction to APIs**
 
-By the end of this module, you should be able to:
+### **1. What are APIs?**
 
-* Explain what APIs are and why they are used
-* Work with REST APIs using Python’s `requests` library
-* Understand API responses, status codes, and authentication
-* Parse HTML content with **Beautiful Soup**
-* Use **Scrapy** to build scalable web crawlers
-* Decide when to use APIs vs web scraping
+* **Definition:** An API (Application Programming Interface) is a set of rules and tools that allow one software program to interact with another.
+* **Use Case:** Accessing data from services like Twitter, GitHub, or weather platforms without directly interacting with their web pages.
 
----
+### **2. Types of APIs**
 
-## Lesson 9.1: Introduction to APIs
+* **Web APIs:** Use HTTP to request data from a server.
+* **REST (Representational State Transfer):** Popular API style using standard HTTP methods: GET, POST, PUT, DELETE.
+* **JSON:** A lightweight, human-readable format for data exchange.
 
-### What are APIs?
-
-* **API (Application Programming Interface):** A set of rules that allows software applications to communicate with each other.
-* **Web APIs:** Access data/services over the web using HTTP.
-* **REST APIs:** Use HTTP methods (GET, POST, PUT, DELETE) for CRUD operations.
-* **JSON:** Common format for data exchange between client and server.
-
-**Examples of APIs:**
-
-* Social media (Twitter, Instagram)
-* Weather (OpenWeatherMap)
-* Finance (stocks, currency rates)
-
----
-
-### Working with REST APIs using `requests`
-
-#### Installation
-
-```bash
-pip install requests
-```
-
----
-
-#### Making GET Requests
+### **3. Example: Accessing a Protected API**
 
 ```python
 import requests
 
-response = requests.get("https://api.github.com")
-print(response.status_code)  # 200 if successful
-print(response.json())       # JSON response content
+# Example: Accessing a protected endpoint
+headers = {
+    "Authorization": "Bearer YOUR_ACCESS_TOKEN"  # Replace YOUR_ACCESS_TOKEN with your API token
+}
+response = requests.get("https://api.example.com/protected", headers=headers)
+
+print(response.status_code)  # 200 means success
+print(response.json())       # JSON response from the API
 ```
+
+**Notes:**
+
+* `"Bearer"` is the standard prefix for OAuth 2.0 tokens.
+* Replace `YOUR_ACCESS_TOKEN` with the token provided by the API service.
 
 ---
 
-#### Making POST Requests
+### **4. Making GET and POST Requests**
+
+* **GET:** Retrieve data.
 
 ```python
-url = "https://jsonplaceholder.typicode.com/posts"
-data = {
-    "title": "foo",
-    "body": "bar",
-    "userId": 1
-}
-
-response = requests.post(url, json=data)
-print(response.status_code)  # 201 if created successfully
+response = requests.get("https://api.github.com")
 print(response.json())
 ```
 
----
+* **POST:** Send data.
 
-#### Handling API Responses
+```python
+url = "https://jsonplaceholder.typicode.com/posts"
+data = {"title": "foo", "body": "bar", "userId": 1}
+response = requests.post(url, json=data)
+print(response.status_code)  # 201 means created successfully
+```
+
+### **5. Handling Errors**
 
 ```python
 try:
     response = requests.get("https://api.github.com/invalid")
-    response.raise_for_status()  # Raises HTTPError for bad responses
+    response.raise_for_status()
 except requests.exceptions.HTTPError as err:
-    print(f"HTTP error occurred: {err}")
+    print(f"HTTP error: {err}")
 except Exception as err:
-    print(f"Other error occurred: {err}")
+    print(f"Other error: {err}")
 ```
 
 ---
 
-#### Authentication with APIs
+## **Lesson 9.2: Web Scraping**
 
-```python
-headers = {"Authorization": "Bearer YOUR_ACCESS_TOKEN"}
-response = requests.get("https://api.example.com/protected", headers=headers)
-```
+### **1. Using Beautiful Soup**
 
-> 💡 Many APIs require keys or tokens for secure access.
-
----
-
-## Lesson 9.2: Web Scraping with Beautiful Soup and Scrapy
-
-### Parsing HTML with Beautiful Soup
+**Purpose:** Extract information from HTML when an API is not available.
 
 **Installation:**
 
@@ -111,9 +86,7 @@ response = requests.get("https://api.example.com/protected", headers=headers)
 pip install beautifulsoup4 requests
 ```
 
----
-
-#### Basic HTML Parsing
+**Example:**
 
 ```python
 from bs4 import BeautifulSoup
@@ -123,115 +96,118 @@ url = "https://example.com"
 response = requests.get(url)
 soup = BeautifulSoup(response.content, "html.parser")
 
-title = soup.title.text
-print(title)
-```
+# Extract page title
+print(soup.title.text)
 
----
-
-#### Navigating the Parse Tree
-
-```python
-# Finding first paragraph
-first_paragraph = soup.find('p')
-print(first_paragraph.text)
-
-# Finding all links
-links = soup.find_all('a')
-for link in links:
+# Extract all links
+for link in soup.find_all('a'):
     print(link.get('href'))
 ```
 
----
-
-#### Extracting Table Data
+**Extracting Tables:**
 
 ```python
 table = soup.find('table')
 if table:
-    rows = table.find_all('tr')
-    for row in rows:
-        cols = row.find_all('td')
-        data = [col.text for col in cols]
+    for row in table.find_all('tr'):
+        data = [col.text for col in row.find_all('td')]
         print(data)
 ```
 
 ---
 
-### Scraping Data with Scrapy
+### **2. Using Scrapy for More Advanced Crawling**
 
-**Installation:**
+Scrapy is a **framework** for scalable, automated web scraping.
+
+**Step 1: Install Scrapy**
 
 ```bash
 pip install scrapy
 ```
 
----
-
-#### Creating a Scrapy Project
+**Step 2: Create a Scrapy project**
 
 ```bash
 scrapy startproject myproject
 ```
 
----
+**What this does:**
 
-#### Creating a Simple Spider
+* Creates a folder `myproject/` **automatically**.
+* Inside it:
+
+```
+myproject/
+├── scrapy.cfg               # Main configuration
+├── myproject/               # Python module with same name
+│   ├── __init__.py
+│   ├── items.py
+│   ├── middlewares.py
+│   ├── pipelines.py
+│   └── spiders/            # Automatically created folder for spiders
+```
+
+**Step 3: Add a spider**
+
+* File: `myproject/myproject/spiders/example_spider.py`
 
 ```python
-# myproject/spiders/example_spider.py
 import scrapy
 
 class ExampleSpider(scrapy.Spider):
-    name = "example"
+    name = "example"  # Used by `scrapy crawl`
     start_urls = ['https://example.com']
 
     def parse(self, response):
-        title = response.css('title::text').get()
-        yield {'title': title}
+        yield {'title': response.css('title::text').get()}
 ```
 
----
-
-#### Running a Scrapy Spider
+**Step 4: Run the spider**
 
 ```bash
 scrapy crawl example
 ```
 
----
+**Important Notes:**
 
-#### Scrapy Pipelines
+* You **do not** include the path to the spider file; Scrapy automatically searches `myproject/myproject/spiders/` for a spider with the matching `name`.
+* Multiple spiders can exist; each must have a **unique `name`**.
 
-* Pipelines process and store scraped data.
-* Can clean data, save to databases, or export to files.
+**Folder example with multiple spiders:**
 
----
+```
+myproject/
+├── scrapy.cfg
+├── myproject/
+│   ├── __init__.py
+│   ├── items.py
+│   ├── middlewares.py
+│   ├── pipelines.py
+│   └── spiders/
+│       ├── example_spider.py
+│       └── weather_spider.py
+```
 
-#### Handling Requests and Responses
+Run each spider by its name:
 
-* Scrapy supports headers, cookies, and user agents.
-* Helps avoid detection as a bot.
-
----
-
-## Key Takeaways 🔑
-
-* **APIs** are the preferred method to access structured data.
-* **Web scraping** is a workaround when APIs are unavailable, but is more fragile.
-* `requests` simplifies HTTP interactions in Python.
-* Beautiful Soup is excellent for parsing and extracting HTML content.
-* Scrapy is ideal for large-scale, automated web scraping projects.
-
----
-
-## Practice Exercises 📝
-
-1. Use a public API (like OpenWeatherMap) to fetch and display JSON data.
-2. Parse a webpage to extract all headlines or links using Beautiful Soup.
-3. Build a simple Scrapy spider to scrape titles from a website.
-4. Combine API and web scraping data to create a mini dataset.
+```bash
+scrapy crawl example
+scrapy crawl weather
+```
 
 ---
 
-This concludes the Python course modules! 🎓
+### ✅ **Key Takeaways**
+
+1. **APIs** are structured and preferred; use `requests` to GET or POST data.
+2. **Beautiful Soup** is great for simple scraping of HTML.
+3. **Scrapy** is for larger, scalable scraping projects.
+
+   * `scrapy startproject` creates the folder structure automatically.
+   * Spiders live in `myproject/myproject/spiders/`.
+   * `scrapy crawl <spider_name>` runs a spider by its unique `name`, not file path.
+
+---
+
+Cogratulations ── this concludes the course!
