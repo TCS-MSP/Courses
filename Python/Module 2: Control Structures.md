@@ -1,6 +1,7 @@
 [Previous Module - Module 1: Introduction to Python](./Module%201:%20Introduction%20to%20Python.md)
 
 # Module 2: Control Structures 🔀
+⏱️ **Estimated reading time:** ~25 minutes
 
 Control structures allow a program to **make decisions**, **repeat actions**, and **handle errors gracefully**. Without them, programs would run top-to-bottom with no flexibility. This module introduces the core tools that make Python programs dynamic and responsive.
 
