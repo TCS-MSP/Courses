@@ -1,8 +1,7 @@
 [Previous Module - Module 7: Advanced Python Concepts](./Module%207:%20Advanced%20Python%20Concepts.md)
 
-⏱️ **Estimated reading time:** ~35–40 minutes
-
 # Module 8: Working with Data (Intro to Data Science) 📊
+⏱️ **Estimated reading time:** ~35–40 minutes
 
 This module introduces **data analysis** and **data visualization** using some of the most widely used Python libraries in data science. You’ll learn how to load, inspect, clean, manipulate, and visualize data—skills that are foundational for analytics, machine learning, and real-world decision making.
 
