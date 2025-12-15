@@ -1,6 +1,6 @@
 # Module 3: Functions and Modules 🧩
 
-[Previous Module - Module 2: Control Structures](Module%202:%20Control%20Structures.md)
+[Previous Module - Module 2: Control Structures](./Module%202:%20Control%20Structures.md)
 
 Functions and modules are essential tools for structuring Python programs. **Functions** let you group logic into reusable blocks, while **modules** allow you to organize related code into separate files. Together, they help keep code clean, scalable, and easier to reason about as programs grow.
 
@@ -371,4 +371,4 @@ print(response.status_code)
 
 ---
 
-[Next Module - Module 4: Data Structures](Module%204:%20Data%20Structures.md)
+[Next Module - Module 4: Data Structures](./Module%204:%20Data%20Structures.md)
