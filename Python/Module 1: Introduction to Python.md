@@ -1,4 +1,5 @@
 # Module 1: Introduction to Python 🐍
+⏱️ **Estimated reading time:** ~20 minutes
 
 This module lays the foundation for the entire course. We’ll introduce the core ideas behind programming and the Python language, focusing on *readability*, *clarity*, and *learning by doing*. By the end of this module, you’ll be able to read, write, and understand simple Python programs—and more importantly, feel comfortable experimenting.
 
