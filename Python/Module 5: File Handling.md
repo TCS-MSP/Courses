@@ -1,6 +1,7 @@
 [Previous Module - Module 4: Data Structures](./Module%204:%20Data%20Structures.md)
 
 # Module 5: File Handling 📁
+⏱️ **Estimated reading time:** ~25 minutes
 
 File handling allows Python programs to **read data from files** and **write data to files** on disk. This is essential for tasks like saving program output, loading configuration data, processing datasets, and interacting with external systems.
 
