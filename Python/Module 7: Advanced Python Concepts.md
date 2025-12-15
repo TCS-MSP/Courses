@@ -267,4 +267,4 @@ print(parsed_date)
 
 ---
 
-[Next Module - Module 8: Testing, Debugging, and Best Practices](./Module%208:%20Testing,%20Debugging,%20and%20Best%20Practices.md)
+[Next Module - Module 8: Working with Data (Intro to Data Science)](./Module%208:%20Working%20with%20Data%20%28Intro%20to%20Data%20Science%29.md)
