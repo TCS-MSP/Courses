@@ -1,6 +1,7 @@
 [Previous Module - Module 2: Control Structures](./Module%202:%20Control%20Structures.md)
 
 # Module 3: Functions and Modules 🧩
+⏱️ **Estimated reading time:** ~25 minutes
 
 Functions and modules are essential tools for structuring Python programs. **Functions** let you group logic into reusable blocks, while **modules** allow you to organize related code into separate files. Together, they help keep code clean, scalable, and easier to reason about as programs grow.
 
