@@ -1,8 +1,7 @@
 [Previous Module - Module 5: File Handling](./Module%205:%20File%20Handling.md)
 
-⏱️ **Estimated reading time:** ~35 minutes
-
 # Module 6: Object-Oriented Programming (OOP) 🧱
+⏱️ **Estimated reading time:** ~35 minutes
 
 Object-Oriented Programming (OOP) is a programming paradigm that organizes code around **objects**, which bundle **data (attributes)** and **behavior (methods)** together. In Python, OOP is built around defining **classes** and creating **objects** from those classes.
 
