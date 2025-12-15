@@ -321,4 +321,4 @@ In **Module 3**, we’ll learn how to:
 * Organize code using **modules and packages**
 * Extend Python using third-party libraries
 
-[Next Module - Module 3: Functions and Modules](./Module%203:%20Functions%20and%20Modules.md]
+[Next Module - Module 3: Functions and Modules](./Module%203:%20Functions%20and%20Modules.md)
