@@ -370,6 +370,73 @@ print(response.status_code)
 3. Write a custom module with at least two functions.
 4. Install a third-party package and use one of its functions.
 
+```python
+# Exercises for module 3:
+"""
+1. Write a function that calculates the area of a rectangle.
+2. Create a function that accepts any number of arguments and returns their average.
+3. Write a custom module with at least two functions.
+4. Install a third-party package and use one of its functions.
+"""
+# Exercise 1:
+print("\n\nExercises for module 3")
+print("\nExercise 1 - Calculate the area of a rectangle: ")
+def rect_area(width, height):
+  area = width*height
+  print(f"The area of a rectangle with width {width} and height {height} is: "+ str(area))
+
+rect_area(3,5) 
+"""
+Notice, I could have added a return statement and saved the area with "return area" in the function, and setting rect_area(3,5) equal to something with "rect1 = rect_area(3,5)"
+
+That would look like the following:
+
+def rect_area(width, height):
+  area = width*height
+  return area
+
+area1 = rect_area(width, height)
+print(area1)
+
+# However, this would not produce the nice sentence we have above (The area of the rectangle with width... etc.)
+""""
+
+
+# Exercise 2 - Create a function that accepts any number of arguments and returns their average.:
+print("\nExercise 2:\n")
+def avg(*args): # Creates a tuple (val1, val2, val3, val4 ....)
+  sum1 = 0
+  number_of_items = 0
+
+  for arg in args:
+    sum1 += arg
+    counter += 1
+
+  return sum1/counter
+
+avg1 = avg(3, 4, 5)
+
+# Creates the tuple (3, 4, 5)
+  
+  # for arg in args
+  # loop 1: arg = 3
+  # loop 2: arg = 4
+  # loop 3: arg = 5
+
+  # sum1 += args
+  # loop 1: sum1 = 3
+  # loop 2: sum1 = 3 + 4 = 7
+  # loop 3: sum1 = 3 + 4 + 5 = 12
+
+  # counter += 1:
+  # loop 1: counter = 1
+  # loop 2: counter = 2
+  # loop 3: counter = 3
+
+"""
+We did not demonstrate exercise 3 or 4 due to hardware/software limitations.
+"""
+```
 ---
 
 [Next Module - Module 4: Data Structures](./Module%204:%20Data%20Structures.md)
