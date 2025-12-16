@@ -312,6 +312,33 @@ except IOError:
 3. Write a loop that stops when the user enters `"quit"`.
 4. Add error handling to safely divide two numbers.
 
+```python
+"""
+1. Write a program that checks if a number is even or odd.
+CHECK
+2. Use a for loop to print numbers from 1 to 100.
+
+3. Write a loop that stops when the user enters "quit".
+
+4. Add error handling to safely divide two numbers.
+"""
+
+num = 49
+
+if (num % 2) == 0:
+  print(num)
+
+for i in range(1,101):
+  print(i)
+
+while True:
+  user_input = input("Enter a word: ")
+  if user_input == "quit":
+    print("User entered the word quit")
+    break
+    
+  print("User did not enter the word quit")
+```
 ---
 
 ## What’s Next? 🚀
