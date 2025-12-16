@@ -43,7 +43,7 @@ print(response.json())       # JSON response from the API
 ---
 
 ### **4. Making GET and POST Requests**
-
+> Don't forget to `import requests`
 * **GET:** Retrieve data.
 
 ```python
@@ -58,6 +58,7 @@ url = "https://jsonplaceholder.typicode.com/posts"
 data = {"title": "foo", "body": "bar", "userId": 1}
 response = requests.post(url, json=data)
 print(response.status_code)  # 201 means created successfully
+print(response.json())
 ```
 
 ### **5. Handling Errors**
@@ -65,7 +66,7 @@ print(response.status_code)  # 201 means created successfully
 ```python
 try:
     response = requests.get("https://api.github.com/invalid")
-    response.raise_for_status()
+    response.raise_for_status() # Raises HTTPError for bad responses
 except requests.exceptions.HTTPError as err:
     print(f"HTTP error: {err}")
 except Exception as err:
