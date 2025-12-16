@@ -81,6 +81,12 @@ except Exception as err:
 
 **Purpose:** Extract information from HTML when an API is not available.
 
+
+The examples cover:
+- Fetching a webpage
+- Parsing HTML content
+- Extracting titles, links, paragraphs, and tables
+
 **Installation:**
 
 ```bash
@@ -96,14 +102,27 @@ import requests
 url = "https://example.com"
 response = requests.get(url)
 soup = BeautifulSoup(response.content, "html.parser")
+# Fetches and Parses a Webpage
 
 # Extract page title
 print(soup.title.text)
+# This extracts the text inside the <title> tag of the page.
 
 # Extract all links
 for link in soup.find_all('a'):
     print(link.get('href'))
+# This finds all anchor (<a>) tags and prints their href attributes.
 ```
+
+
+## 📄 Finding a Specific Tag (First Paragraph)
+
+```python
+first_paragraph = soup.find('p')
+print(first_paragraph.text)
+```
+
+This retrieves the **first `<p>` (paragraph)** element found on the page.
 
 **Extracting Tables:**
 
@@ -114,7 +133,30 @@ if table:
         data = [col.text for col in row.find_all('td')]
         print(data)
 ```
+This:
 
+* Locates the first `<table>` on the page
+* Iterates through rows (`<tr>`)
+* Extracts text from table cells (`<td>`)
+
+---
+
+## ⚠️ Notes
+
+* `soup.find()` returns the **first matching element**
+* `soup.find_all()` returns a **list of all matching elements**
+* Always check if an element exists before accessing `.text`
+* Some websites block scraping or require headers
+
+---
+
+## 📚 Summary
+
+This example shows how to:
+
+* Scrape HTML content using Python
+* Extract titles, links, paragraphs, and tables
+* Structure scraping logic safely and clearly
 ---
 
 ### **2. Using Scrapy for More Advanced Crawling**
