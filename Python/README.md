@@ -10,7 +10,7 @@ Welcome! This repository contains a structured set of Python modules, starting f
 
 ## Modules Overview
 
-1. [Module 1: Python Basics](./Module%201:%20Python%20Basics.md) ⏱️ ~20 min
+1. [Module 1: Introduction to Python](./Module%201:%20Introduction%20to%20Python.md) ⏱️ ~20 min
 2. [Module 2: Control Flow & Loops](./Module%202:%20Control%20Flow%20&%20Loops.md) ⏱️ ~25 min
 3. [Module 3: Functions](./Module%203:%20Functions.md) ⏱️ ~25 min
 4. [Module 4: Data Structures](./Module%204:%20Data%20Structures.md) ⏱️ ~30 min
