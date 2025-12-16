@@ -262,10 +262,10 @@ print(a ** b)  # Exponentiation
 #### Comparison Operators
 
 ```python
-print(a == b)
-print(a != b)
-print(a > b)
-print(a <= b)
+print(a == b) # Prints "True" if they are the same
+print(a != b) # Prints "True" if they are NOT the same
+print(a > b) # True if a is greater than b
+print(a <= b) # True if a is less than OR equal to be
 ```
 
 #### Logical Operators
