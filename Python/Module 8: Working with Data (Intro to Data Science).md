@@ -163,6 +163,28 @@ print(grouped)
 ```
 
 > 💡 `groupby()` is commonly used for summarizing datasets.
+### Additional Info on groupby (from ChatGPT):
+```python
+import pandas as pd
+
+# Original DataFrame
+df = pd.DataFrame({
+    "City": ["NY", "NY", "LA", "LA", "LA"],
+    "Sales": [100, 200, 300, 400, 500],
+    "Profit": [10, 20, 30, 40, 50]
+})
+
+# Group by City and compute mean
+grouped = df.groupby("City").mean()
+print(grouped)
+```
+
+```
+      Sales  Profit
+City                
+LA    400.0    40.0
+NY    150.0    15.0
+```
 
 ---
 
