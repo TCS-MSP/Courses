@@ -266,4 +266,115 @@ print(parsed_date)
 
 ---
 
+# Exercise 4 - Here’s a clear, Pythonic way to **parse user-entered dates** (in multiple possible formats) and **format them for display** using the standard library.
+
+---
+
+## Basic approach (using `datetime`)
+
+### Parse a date entered by the user
+
+```python
+from datetime import datetime
+
+user_input = input("Enter a date: ")
+
+formats = [
+    "%Y-%m-%d",      # 2025-12-17
+    "%m/%d/%Y",      # 12/17/2025
+    "%d/%m/%Y",      # 17/12/2025
+    "%B %d, %Y",     # December 17, 2025
+    "%b %d, %Y",     # Dec 17, 2025
+]
+
+parsed_date = None
+
+for fmt in formats:
+    try:
+        parsed_date = datetime.strptime(user_input, fmt)
+        break
+    except ValueError:
+        pass
+
+if parsed_date is None:
+    raise ValueError("Invalid date format")
+```
+
+---
+
+### 2. Format the date for display
+
+```python
+display_date = parsed_date.strftime("%A, %B %d, %Y")
+print(display_date)
+```
+
+**Output example**
+
+```
+Wednesday, December 17, 2025
+```
+
+---
+
+## Common display formats
+
+```python
+parsed_date.strftime("%Y-%m-%d")        # 2025-12-17 (ISO)
+parsed_date.strftime("%m/%d/%Y")        # 12/17/2025
+parsed_date.strftime("%d %b %Y")        # 17 Dec 2025
+parsed_date.strftime("%A, %B %d, %Y")   # Wednesday, December 17, 2025
+```
+
+---
+
+## User-friendly function
+
+```python
+from datetime import datetime
+
+def parse_and_format(date_str, output_format="%B %d, %Y"):
+    formats = [
+        "%Y-%m-%d",
+        "%m/%d/%Y",
+        "%d/%m/%Y",
+        "%B %d, %Y",
+        "%b %d, %Y",
+    ]
+    
+    for fmt in formats:
+        try:
+            dt = datetime.strptime(date_str, fmt)
+            return dt.strftime(output_format)
+        except ValueError:
+            continue
+
+    raise ValueError("Unsupported date format")
+```
+
+Usage:
+
+```python
+print(parse_and_format("17/12/2025"))
+```
+
+---
+
+## If you want more flexibility (recommended for real apps)
+
+Use **`dateutil`** (handles natural language like “next Friday”):
+
+```bash
+pip install python-dateutil
+```
+
+```python
+from dateutil import parser
+
+dt = parser.parse("Dec 17 2025")
+print(dt.strftime("%Y-%m-%d"))
+```
+
+---
+
 [Next Module - Module 8: Working with Data (Intro to Data Science)](./Module%208:%20Working%20with%20Data%20%28Intro%20to%20Data%20Science%29.md)
