@@ -241,6 +241,32 @@ Abstraction hides implementation details and exposes **only what the user needs 
 3. Demonstrate polymorphism using a list of different objects.
 4. Add private attributes to protect internal data.
 
+## Our Example from Class (Employee / Admin):
+```python
+# Parent Class
+class Employee:
+  def __init__(self,ident):
+    self.ident = ident
+  
+  def intro(self):
+    print(f"My id is {self.ident}")
+
+# Child class
+class Admin(Employee):
+  def __init__(self,ident,badge):
+    super().__init__(ident)
+    self.badge = badge
+  
+  def intro(self):
+    super().intro()
+    print(f"My badge is also {self.badge}")
+
+Reg = Employee(1)
+Ad = Admin(2,"Blue")
+
+Reg.intro()
+Ad.intro()
+```
 ---
 
 [Next Module - Module 7: Advanced Python Concepts](./Module%207:%20Advanced%20Python%20Concepts.md)
