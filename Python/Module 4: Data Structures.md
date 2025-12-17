@@ -366,5 +366,21 @@ if "name" in student:
 3. Convert a list of tuples into a dictionary.
 4. Use a dictionary to count word occurrences in a sentence.
 
+```python
+# Exercise 4: Use a dictionary to count word occurrences in a sentence.
+sentence = "The little man with the blue car chased the blue pelican to the blue ocean with a blue sky into the blue sea"
+
+split_sent = sentence.lower().split(' ')
+# print(split_sent)
+
+new_dict = {}
+for word in split_sent:
+  if word in new_dict:
+    new_dict[word] += 1
+  else:
+    new_dict[word] = 1
+print(new_dict)
+```
+
 ---
 [Next Module - Module 5: File Handling](./Module%205:%20File%20Handling.md)
