@@ -370,14 +370,15 @@ if "name" in student:
 # Exercise 4: Use a dictionary to count word occurrences in a sentence.
 sentence = "The little man with the blue car chased the blue pelican to the blue ocean with a blue sky into the blue sea"
 
-split_sent = sentence.lower().split(' ')
+split_sent = sentence.lower().split(' ') # .lower() puts in lowercase ('The' treated same as 'the');
+# .split() separates words and puts each word in a list
 # print(split_sent)
 
 new_dict = {}
 for word in split_sent:
-  if word in new_dict:
+  if word in new_dict: # If the word is already in the dictionary, increment its number of occurrences
     new_dict[word] += 1
-  else:
+  else: # If the word doesn't exist, add it to the dictionary with value one
     new_dict[word] = 1
 print(new_dict)
 ```
